@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="icon" href="../images/uq-logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="burger-icon" onclick="toggleSidebar()">
+            <img class="burger-image" src="../images/nav.svg" alt="nav" />
+        </div>
+        <div class="logo-text" onclick="goToHome()">
+            <img class="uq-logo-image" src="../images/uq-logo.jpeg" alt="logo" />
+            <p>UQ Peer Observation</p>
+        </div>
+        <div class="home-icon">
+            <a href="index.html">
+                <img class="home-image" src="../images/home.svg" alt="home" />
+            </a>
+        </div>
+    </header>
+
+    <div class="guide-wrapper">
+        <div id="guide-info">
+            <h1 style="color: #51247A;">New Session User Guide</h1>
+            <p><i>This page gives step-by-step instructions on how to conduct a new session</i></p>
+        </div>
+        <div class="guide-section">
+            <div class="section-content">
+                <div class="left-content">
+                    <h2>Step 1: Enter Course Information</h2>
+                    <img class="guide-images" style="max-width:40vh;" src="../images/course-info.png"
+                        alt="Course Information Form">
+                </div>
+                <div class="right-content">
+                    <ul class="useful-info">
+                        <li>Course Code Format: XXXX1234</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guide-section">
+            <div class="section-content">
+                <div class="left-content">
+                    <h2>Step 2: Enter Session Information</h2>
+                    <img class="guide-images" src="../images/session-info.png" alt="Session Information Form">
+                </div>
+                <div class="right-content">
+                    <ul class="useful-info">
+                        <li>Class Length needs to be divisible by Interval Length</li>
+                        <li>Click "Is Groupwork involved" for more options to appear</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guide-section">
+            <div class="section-content">
+                <div class="left-content">
+                    <h2>Step 3: Click on Codes that you observe happening</h2>
+                    <img class="guide-images" style="max-width:40vh;" src="../images/copus-code-select.png"
+                        alt="Student Doing Codes">
+                </div>
+                <div class="right-content">
+                    <ul class="useful-info">
+                        <li>Hover over codes to see what they mean</li>
+                        <li>Alternatively, use the "COPUS Code List" button under the timer to see all code information
+                        </li>
+                        <li>Click on a square to record it. It will appear green after being clicked</li>
+                        <li>Click on a green square to un-record the square</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guide-section">
+            <div class="section-content">
+                <div class="left-content">
+                    <h2>Step 4: Record Engagement by Clicking</h2>
+                    <img class="guide-images" style="max-width:40vh;" src="../images/engage-example.png"
+                        alt="Engagement Levels">
+                </div>
+                <div class="right-content">
+                    <ul class="useful-info">
+                        <li>Select the engagement level, and what students are engaged with</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guide-section">
+            <div class="section-content">
+                <div class="left-content">
+                    <h2>Step 5: Record any Custom Notes (Optional)</h2>
+                    <img class="guide-images" style="max-width:40vh;" src="../images/custom-notes.png"
+                        alt="Custom Notes Section">
+                </div>
+                <div class="right-content">
+                    <ul class="useful-info">
+                        <li>Optional</li>
+                        <li>Record observations that cannot be accurately described by COPUS codes.</li>
+                        <li>Can be helpful for later reference</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="guide-section">
+            <div class="section-content">
+                <div class="left-content">
+                    <h2>Step 6: Wait for Interval to Finish</h2>
+                    <p><b>Note:</b> If the class finishes early, click the "Finish Session Early" button.</p>
+                </div>
+                <div class="right-content">
+                    <!-- No dot points for this step -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="new-session.html"><i class="fas fa-plus"></i> Start a New Session</a>
+            <a href="previous-sessions.html"><i class="fas fa-history"></i> View Previous Sessions</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="f-wrapper">
+            <div id="img-text">
+                <img id="footer-img" src="../images/uq-logo.jpeg" alt="logo" />
+                <div class="nav-text">
+                    <p class="nav-white">University of Queensland</p>
+                </div>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="contact.html">Have a Question? Contact Us</a>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="https://student.eait.uq.edu.au/projects/?act=project_detail&id=15269">See
+                    Thesis Project</a>
+            </div>
+        </div>
+    </footer>
+    <script src="htdocs/js/script.js"></script>
+
+
+</body>
+
+</html>

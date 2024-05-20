@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Session</title>
+    <link rel="icon" href="../images/uq-logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+</head>
+
+<body onload="test()">
+
+
+
+    <header class="header">
+        <div class="burger-icon" onclick="toggleSidebar()">
+            <img class="burger-image" src="../images/nav.svg" alt="nav" />
+        </div>
+        <div class="logo-text" onclick="goToHome()">
+            <img class="uq-logo-image" src="../images/uq-logo.jpeg" alt="logo" />
+            <p>UQ Peer Observation</p>
+        </div>
+        <div class="home-icon">
+            <a href="index.html">
+                <img class="home-image" src="../images/home.svg" alt="home" />
+            </a>
+        </div>
+    </header>
+
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="new-session.html"><i class="fas fa-plus"></i> Start a New Session</a>
+            <a href="previous-sessions.html"><i class="fas fa-history"></i> View Previous Sessions</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="question-bar">
+        <p id="first-step">1. Course Details</p>
+        <i class="fas fa-arrow-right"></i>
+        <p id="second-step">2. Session Details</p>
+        <i class="fas fa-arrow-right"></i>
+        <p id="third-step">3. Begin Session</p>
+    </div>
+
+    <div id="questionContainer">
+        <h2>Please Fill Out the Following:</h2>
+        <form id="questionForm">
+            <label for="question1">Course Code:</label>
+            <input type="text" id="question1" name="question1"><br>
+
+            <label for="question2">Date (dd/mm/yyyy):</label>
+            <input type="date" id="question2" name="question2"><br>
+
+            <label for="question3">Instructor:</label>
+            <input type="text" id="question3" name="question3"><br>
+
+            <button class="submit-button" type="button" onclick="submitQuestions(true)">Submit</button>
+        </form>
+    </div>
+
+    <div id="nextQuestionsContainer" style="display: none;">
+        <h2>Please Fill Out the Following:</h2>
+        <form id="nextQuestionForm">
+            <label for="nextQuestion1">Class Length (minutes):</label>
+            <input type="number" id="nextQuestion1" name="question1" min="0" step="5"><br>
+
+            <label for="nextQuestion2">Interval Length (minutes):</label>
+            <input type="number" id="nextQuestion2" name="question2" min="0" step="0.5"><br>
+
+            <label for="nextQuestion3">Class Type:</label>
+            <select id="nextQuestion3" name="question3">
+                <option value="">Select Class Type</option>
+                <option value="Lecture">Lecture</option>
+                <option value="Practical">Practical</option>
+                <option value="Lab">Lab</option>
+                <option value="Contact">Contact</option>
+                <option value="Seminar">Seminar</option>
+                <option value="Workshop">Workshop</option>
+                <option value="GroupWork">Group Work</option>
+                <option value="Other">Other</option>
+            </select>
+            <br>
+
+
+            <label for="nextQuestion4">Is Groupwork Involved:</label>
+            <input type="checkbox" id="nextQuestion4" name="question4" onclick="toggleAdditionalQuestions()"><br>
+
+            <div id="additionalQuestions" style="display: none;">
+                <label for="nextQuestion5">How Many Tables:</label>
+                <input type="number" id="nextQuestion5" name="question5" min="0"><br>
+
+                <label for="nextQuestion6">How Many people per table:</label>
+                <input type="number" id="nextQuestion6" name="question6" min="1"><br>
+
+                <label for="nextQuestion7">What interactions are you mainly looking for:</label>
+                <textarea id="question7" name="nextQuestion7" rows="1" cols="50"></textarea><br>
+            </div>
+
+            <button class="submit-button" id="submit-button-2" type="button"
+                onclick="submitQuestions(false)">Submit</button>
+        </form>
+    </div>
+
+    <div id="thirdQuestionsContainer" style="display: none;">
+        <img class="spin" src="../images/session-spin.svg" alt="spin" />
+        <p id="time-remaining">Loading...</p>
+        <p id="interval-count"><b>Loading...</b></p>
+        <p id="interval-time-range">Loading...</p>
+        <p><b>Click Squares Below to Record Codes</b></p>
+        <p id="codes-popup"><b>COPUS Code List</b></p>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn">&times;</span>
+                <div class="sections-container">
+                    <div class="students-section">
+                        <h2>Students are Doing</h2>
+                        <ul>
+                            <li><b>L:</b> Listening to instructor/taking notes, etc.</li>
+                            <li><b>Ind:</b> Individual thinking/problem solving. Only mark when an instructor explicitly
+                                asks
+                                students to think about a clicker question or another question/problem on their own.
+                            </li>
+                            <li><b>CG:</b> Discuss clicker question in groups of 2 or more students</li>
+                            <li><b>WG:</b> Working in groups on worksheet activity</li>
+                            <li><b>OG:</b> Other assigned group activity, such as responding to instructor question</li>
+                            <li><b>AnQ:</b> Student answering a question posed by the instructor with rest of class
+                                listening
+                            </li>
+                            <li><b>SQ:</b> Student asks question</li>
+                            <li><b>WC:</b> Engaged in whole class discussion by offering explanations, opinion,
+                                judgment,
+                                etc. to whole class, often facilitated by instructor</li>
+                            <li><b>Prd:</b> Making a prediction about the outcome of demo or experiment</li>
+                            <li><b>SP:</b> Presentation by student(s)</li>
+                            <li><b>TQ:</b> Test or quiz</li>
+                            <li><b>W:</b> Waiting (instructor late, working on fixing AV problems, instructor otherwise
+                                occupied, etc.)</li>
+                            <li><b>TC:</b> Team Conflict</li>
+                            <li><b>TD: </b>Technical Difficulty</li>
+                            <li><b>Other:</b> Explain in comments</li>
+                        </ul>
+                    </div>
+                    <div class="instructors-section">
+                        <h2>Instructor is Doing</h2>
+                        <ul>
+                            <li><b>Lec:</b> Lecturing (presenting content, deriving mathematical results, presenting a
+                                problem solution, etc.)</li>
+                            <li><b>RtW:</b> Real-time writing on board, doc. projector, etc. (often checked off along
+                                with
+                                Lec)</li>
+                            <li><b>FUp:</b> Follow-up/feedback on clicker question or activity to entire class</li>
+                            <li><b>PQ:</b> Posing non-clicker question to students (non-rhetorical)</li>
+                            <li><b>CQ:</b> Asking a clicker question (mark the entire time the instructor is using a
+                                clicker
+                                question, not just when first asked)</li>
+                            <li><b>AnQ:</b> Listening to and answering student questions with entire class listening
+                            </li>
+                            <li><b>MG:</b> Moving through class guiding ongoing student work during active learning task
+                            </li>
+                            <li><b>101:</b> One-on-one extended discussion with one or a few individuals, not paying
+                                attention to the rest of the class (can be along with MG or AnQ)</li>
+                            <li><b>D/V:</b> Showing or conducting a demo, experiment, simulation, video, or animation
+                            </li>
+                            <li><b>Adm:</b> Administration (assign homework, return tests, etc.)</li>
+                            <li><b>W:</b> Waiting when there is an opportunity for an instructor to be interacting with
+                                or
+                                observing/listening to student or group activities and the instructor is not doing so
+                            </li>
+                            <li><b>TD: </b>Technical Difficulty</li>
+                            <li><b>Other:</b> Explain in comments</li>
+                        </ul>
+                    </div>
+                </div>
+                <p style="text-align: center;">Source: <a href="https://cwsei.ubc.ca/resources/tools/copus"
+                        target="_blank">https://cwsei.ubc.ca/resources/tools/copus</a></p>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div class="grid-column">
+                <h2>Student Doing:</h2>
+                <div class="grid left-grid" id="leftGrid">
+
+                    <!-- Placeholder text -->
+                    <div class="square" id="square1" onclick="toggleSquare('square1')"
+                        title="Listening to Instructor">
+                        <img src="../images/listen.svg" />
+                        <h3>L</h3>
+                    </div>
+                    <div class="square" id="square2" onclick="toggleSquare('square2')"
+                        title="Individual thinking/problem solving">
+                        <img src="../images/ind.svg" />
+                        <h3>Ind</h3>
+                    </div>
+                    <div class="square" id="square3" onclick="toggleSquare('square3')"
+                        title="Discuss clicker question in groups of 2 or more students">
+                        <img src="../images/two-discussion.svg" />
+                        <h3>CG</h3>
+                    </div>
+                    <div class="square" id="square4" onclick="toggleSquare('square4')"
+                        title="Working in groups on worksheet activity">
+                        <img src="../images/whole-class-discussion.svg" />
+                        <h3>WG</h3>
+                    </div>
+                    <div class="square" id="square5" onclick="toggleSquare('square5')"
+                        title="Other Group Activity">
+                        <img src="../images/other-group-discussion.svg" />
+                        <h3>OG</h3>
+                    </div>
+                    <div class="square" id="square6" onclick="toggleSquare('square6')"
+                        title="Student answering a question posed by the instructor">
+                        <img src="../images/answer.svg" />
+                        <h3>AnQ</h3>
+                    </div>
+                    <div class="square" id="square7" onclick="toggleSquare('square7')" title="Student asks question">
+                        <img src="../images/ask-question.svg" />
+                        <h3>SQ</h3>
+                    </div>
+                    <div class="square" id="square8" onclick="toggleSquare('square8')"
+                        title="Engaged in whole class discussion">
+                        <img src="../images/whole-class-discussion.svg" />
+                        <h3>WC</h3>
+                    </div>
+                    <div class="square" id="square9" onclick="toggleSquare('square9')"
+                        title="Making a prediction">
+                        <img src="../images/Pred.svg" />
+                        <h3>Prd</h3>
+                    </div>
+                    <div class="square" id="square10" onclick="toggleSquare('square10')"
+                        title="Presentation by student(s)">
+                        <img src="../images/presentation.svg" />
+                        <h3>SP</h3>
+                    </div>
+                    <div class="square" id="square11" onclick="toggleSquare('square11')" title="Test or Quiz">
+                        <img src="../images/writing.svg" />
+                        <h3>TQ</h3>
+                    </div>
+                    <div class="square" id="square12" onclick="toggleSquare('square12')"
+                        title="Waiting">
+                        <img src="../images/Wait.svg" />
+                        <h3>W</h3>
+                    </div>
+                    <div class="square" id="square13" onclick="toggleSquare('square13')" title="Team Conflict">
+                        <img src="../images/TechDiff.svg" />
+                        <h3>TC</h3>
+                    </div>
+                    <div class="square" id="square14" onclick="toggleSquare('square14')" title="Technical Difficulty">
+                        <img src="../images/lightning.svg" />
+                        <h3>TD</h3>
+                    </div>
+                    <div class="square" id="square15" onclick="toggleSquare('square15')"
+                        title="Other: Explain in comments">
+                        <img src="../images/Other.svg" />
+                        <h3>Other</h3>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="grid-column">
+                <h2>Teacher Doing:</h2>
+                <div class="grid right-grid" id="rightGrid">
+                    <div class="square" id="square16" onclick="toggleSquare('square16')"
+                        title="Instructor Lecturing">
+                        <img src="../images/lecture.svg" />
+                        <h3>Lec</h3>
+                    </div>
+                    <div class="square" id="square17" onclick="toggleSquare('square17')"
+                        title="Real-time writing on board, doc. projector, etc">
+                        <img src="../images/writing.svg" />
+                        <h3>RtW</h3>
+                    </div>
+                    <div class="square" id="square18" onclick="toggleSquare('square18')"
+                        title="Follow-up/feedback on clicker question or activity to entire class">
+                        <img src="../images/feedback.svg" />
+                        <h3>FUp</h3>
+                    </div>
+                    <div class="square" id="square19" onclick="toggleSquare('square19')"
+                        title="Posing non-clicker question">
+                        <img src="../images/new-question.svg" />
+                        <h3>PQ</h3>
+                    </div>
+                    <div class="square" id="square20" onclick="toggleSquare('square20')"
+                        title="Asking a clicker question">
+                        <img src="../images/Question.svg" />
+                        <h3>CQ</h3>
+                    </div>
+                    <div class="square" id="square21" onclick="toggleSquare('square21')"
+                        title="Listening to and answering student questions with entire class listening">
+                        <img src="../images/answer.svg" />
+                        <h3>AnQ</h3>
+                    </div>
+                    <div class="square" id="square22" onclick="toggleSquare('square22')"
+                        title="Moving through class">
+                        <img src="../images/moving.svg" />
+                        <h3>MG</h3>
+                    </div>
+                    <div class="square" id="square23" onclick="toggleSquare('square23')"
+                        title="One-on-one discussion">
+                        <img src="../images/oneonone.svg" />
+                        <h3>1o1</h3>
+                    </div>
+                    <div class="square" id="square24" onclick="toggleSquare('square24')"
+                        title="Showing or conducting a demo, experiment, simulation, video, or animation">
+                        <img src="../images/demo.svg" />
+                        <h3>D/V</h3>
+                    </div>
+                    <div class="square" id="square25" onclick="toggleSquare('square25')"
+                        title="Administration (assign homework, return tests, etc.)">
+                        <img src="../images/admin.svg" />
+                        <h3>Adm</h3>
+                    </div>
+                    <div class="square" id="square26" onclick="toggleSquare('square26')"
+                        title="Waiting">
+                        <img src="../images/Wait.svg" />
+                        <h3>W</h3>
+                    </div>
+                    <div class="square" id="square27" onclick="toggleSquare('square27')" title="Technical Difficulty">
+                        <img src="../images/TechDiff.svg" />
+                        <h3>TD</h3>
+                    </div>
+                    <div class="square" id="square28" onclick="toggleSquare('square28')"
+                        title="Other: Explain in comments">
+                        <img src="../images/Other.svg" />
+                        <h3>Other</h3>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+        <div id="other-wrapper">
+            <div id="other-input" class="hidden">
+                <h3>Other:</h3>
+                <input class="other-input-text" type="text" placeholder="Enter your input" id="inputBox">
+            </div>
+            <div id="other-input-2" class="hidden">
+                <h3>Other:</h3>
+                <input class="other-input-text" type="text" placeholder="Enter your input" id="inputBox2">
+            </div>
+        </div>
+
+
+        <img id="engage" src="../images/engagement.svg" alt="engagement" />
+        <h2>Engagement</h2>
+        <div id="engagement-options-container">
+            <div class="option" id="lecture-options">
+                <h2>Engagement Level</h2>
+                <div class="engage-box" id="lecture-high" onclick="toggleEngageBox(this, true)">
+                    <h3>High</h3>
+                    <p>>85%</p>
+                </div>
+                <div class="engage-box" id="lecture-medium" onclick="toggleEngageBox(this, true)">
+                    <h3>Medium</h3>
+                    <p>50-85%</p>
+                </div>
+                <div class="engage-box" id="lecture-low" onclick="toggleEngageBox(this, true)">
+                    <h3>Low</h3>
+                    <p>&lt;50%</p>
+                </div>
+            </div>
+            <div class="option" id="groupwork-options">
+                <h2>Engaged With:</h2>
+                <div class="engage-box" id="lecture-option-engage" onclick="toggleEngageBox(this, false)">
+                    <h3>Lecture</h3>
+                </div>
+                <div class="engage-box" id="group-option-engage" onclick="toggleEngageBox(this, false)">
+                    <h3>Group Work</h3>
+                </div>
+                <div class="engage-box" id="other-option-engage" onclick="toggleEngageBox(this, false)">
+                    <h3>Other</h3>
+                </div>
+            </div>
+        </div>
+
+
+
+        <img id="clipboard" src="../images/clipboard.svg" alt="clipboard" />
+        <h2>(Optional) Custom Notes</h2>
+        <form class="feedback-form" id="custom-notes">
+            <textarea class="feedback-input" id="custom-notes-input"
+                placeholder="Enter your feedback here..."></textarea>
+            <div class="buttons">
+                <div id="cancel-button2" class="cancel-button" onclick="reloadSession()">Discard Session</div>
+                <div id="submit-button2" class="submit-button" onclick="submitSession()">Finish Session Early</div>
+            </div>
+        </form>
+        <p id="auto-saved">This Interval is automatically saved. If you are finished, please wait for the next interval
+            to
+            start</p>
+        <p id="done-seconds-remaining">Loading...</p>
+    </div>
+
+    <footer class="footer">
+        <div class="f-wrapper">
+            <div id="img-text">
+                <img id="footer-img" src="../images/uq-logo.jpeg" alt="logo" />
+                <div class="nav-text">
+                    <p class="nav-white">University of Queensland</p>
+                </div>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="contact.html">Have a Question? Contact Us</a>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="https://student.eait.uq.edu.au/projects/?act=project_detail&id=15269">See
+                    Thesis Project</a>
+            </div>
+        </div>
+    </footer>
+    <script src="htdocs/js/script.js"></script>
+
+
+</body>
+
+</html>

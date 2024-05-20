@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="icon" href="../images/uq-logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+</head>
+<body>
+
+    <header class="header">
+        <div class="burger-icon" onclick="toggleSidebar()">
+            <img class="burger-image" src = "../images/nav.svg" alt="nav"/>
+        </div>
+        <div class="logo-text" onclick="goToHome()">
+            <img class="uq-logo-image" src = "../images/uq-logo.jpeg" alt="logo"/>
+            <p>UQ Peer Observation</p>
+        </div>
+        <div class="home-icon">
+            <a href="index.html">
+                <img class="home-image" src = "../images/home.svg" alt="home"/>
+            </a>
+        </div>
+    </header>
+
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="new-session.html"><i class="fas fa-plus"></i> Start a New Session</a>
+            <a href="previous-sessions.html"><i class="fas fa-history"></i> View Previous Sessions</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="info-wrapper">
+        <h1>
+            Contact Us
+        </h1>
+        <p>
+            Please feel free to contact us for any inquiries or questions regarding this website at s.woolgar@uqconnect.edu.au
+        </p>
+        <p>
+            Alternatively, please feel free to leave your feedback below:
+        </p>
+        <form class="feedback-form">
+            <textarea class="feedback-input" name="feedback" placeholder="Enter your feedback here..."></textarea>
+            <button class="submit-button" onclick="sendContact()">Submit</button>
+        </form>
+
+    </div>
+
+    <footer class="footer">
+        <div class="f-wrapper">
+            <div id="img-text">
+                <img id="footer-img" src="../images/uq-logo.jpeg" alt="logo" />
+                <div class="nav-text">
+                    <p class="nav-white">University of Queensland</p>
+                </div>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="contact.html">Have a Question? Contact Us</a>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="https://student.eait.uq.edu.au/projects/?act=project_detail&id=15269">See
+                    Thesis Project</a>
+            </div>
+        </div>
+    </footer>
+    <script src="htdocs/js/script.js"></script>
+
+
+</body>
+</html>

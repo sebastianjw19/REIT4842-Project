@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <link rel="icon" href="../images/uq-logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+</head>
+
+<body onload="loadResults(false)">
+
+
+    <header class="header">
+        <div class="burger-icon" onclick="toggleSidebar()">
+            <img class="burger-image" src="../images/nav.svg" alt="nav" />
+        </div>
+        <div class="logo-text" onclick="goToHome()">
+            <img class="uq-logo-image" src="../images/uq-logo.jpeg" alt="logo" />
+            <p>UQ Peer Observation</p>
+        </div>
+        <div class="home-icon">
+            <a href="index.html">
+                <img class="home-image" src="../images/home.svg" alt="home" />
+            </a>
+        </div>
+    </header>
+
+    <div class="pdf-master-wrapper">
+
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-content">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="new-session.html"><i class="fas fa-plus"></i> Start a New Session</a>
+                <a href="previous-sessions.html"><i class="fas fa-history"></i> View Previous Sessions</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+            </div>
+        </div>
+
+        <div class="top-results">
+            <div class="heading-line">
+                <h2>Session Results</h2>
+                <div id="res-container">
+                    <div class="raw-res">
+                        <span onclick="viewRaw()">View Non-Summarised Data</span>
+                    </div>
+                    <div class="raw-res">
+                        <span onclick="exportToPDF()">Export to PDF</span>
+                    </div>
+                </div>
+            </div>
+            <h3 id="c-details">Course Details</h3>
+            <div class="course-boxes-wrapper">
+                <div class="course-box">
+                    <p><b>Date: </b></p>
+                    <p><b>Course: </b></p>
+                    <p><b>Duration: </b></p>
+                    <p><b>Course Type: </b></p>
+                    <p><b>Instructor: </b></p>
+                </div>
+                <div class="course-box">
+                    <p><b>Interval Length: </b></p>
+                    <p><b>Group Learning Involved: </b></p>
+                    <p><b>No. Tables: </b></p>
+                    <p><b>No. People per table: </b></p>
+                    <p><b>Interactions looked for: </b></p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="top-results">
+            <div class="heading-line">
+                <h2>Student Results</h2>
+            </div>
+            <div class="course-boxes-wrapper">
+                <div class="course-box" id="student-result">
+                    <p><b>No. Unique Codes: </b></p>
+                    <p><b>Average Engagement: </b></p>
+                    <p><b>Most Common Activity: </b></p>
+                </div>
+                <div class="chart-container" style="position: relative; height:50vh; width:100vw">
+                    <canvas id="pieChart"></canvas>
+                </div>
+
+            </div>
+            <div style="position: relative; height:60vh; width:80vw; align-items: center;">
+                <canvas id="engagement-graph"></canvas>
+            </div>
+
+
+        </div>
+
+        <hr>
+
+        <div class="top-results" id="toplast">
+            <div class="heading-line">
+                <h2>Instructor Results</h2>
+            </div>
+            <div class="course-boxes-wrapper">
+                <div class="course-box" id="instructor-result">
+                    <p><b>No. Unique Codes: </b></p>
+                    <p><b>Most Common Activity: </b></p>
+                </div>
+                <div class="chart-container" style="position: relative; height:50vh; width:100vw">
+                    <canvas id="pieChartInstructor"></canvas>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <footer class="footer">
+        <div class="f-wrapper">
+            <div id="img-text">
+                <img id="footer-img" src="../images/uq-logo.jpeg" alt="logo" />
+                <div class="nav-text">
+                    <p class="nav-white">University of Queensland</p>
+                </div>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="contact.html">Have a Question? Contact Us</a>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="https://student.eait.uq.edu.au/projects/?act=project_detail&id=15269">See
+                    Thesis Project</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="htdocs/js/script.js"></script>
+
+
+</body>
+
+</html>

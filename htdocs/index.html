@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="icon" href="../images/uq-logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="burger-icon" onclick="toggleSidebar()">
+            <img class="burger-image" src="../images/nav.svg" alt="nav" />
+        </div>
+        <div class="logo-text" onclick="goToHome()">
+            <img class="uq-logo-image" src="../images/uq-logo.jpeg" alt="logo" />
+            <p>UQ Peer Observation</p>
+        </div>
+        <div class="home-icon">
+            <a href="index.html">
+                <img class="home-image" src="../images/home.svg" alt="home" />
+            </a>
+        </div>
+    </header>
+
+
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="new-session.html"><i class="fas fa-plus"></i> Start a New Session</a>
+            <a href="previous-sessions.html"><i class="fas fa-history"></i> View Previous Sessions</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="top-row">
+        <div class="welcome-header">
+            <h1>Welcome</h1>
+        </div>
+        <div id="header-information">
+            
+            <p id="intro-text">This site aims to enhance the user experience of Peer Observation at UQ. Building upon existing frameworks such as COPUS, this project aims to prioritise user-centered design to improve the overall experience and reduce the training time of peer observation. This site not only allows you to begin new sessions, but also saves your previous sessions and gives you options to view them in summarized and non-summarized formats. Please note that this site is a work in progress and feel free to leave any suggestions at the contact page. Enjoy!
+            </p>
+            <img class="welcome-image" src="../images/greeetings-purple.svg" alt="welcome" />
+        </div>
+    </div>
+
+    <div class="home-nav-container">
+        <div class="box" style="background-color: #90D6F4;">
+            <h2>Start a new Peer Observation Session or View/Edit Previous</h2>
+            <div class="sub-box-container">
+                <a href="new-session.html" class="sub-box">
+                    <i class="fas fa-plus-circle icon"></i>
+                    <p>Start New Session</p>
+                </a>
+                <a href="previous-sessions.html" class="sub-box">
+                    <i class="far fa-calendar-alt icon"></i>
+                    <p id="prev-center">View Previous Sessions</p>
+                </a>
+            </div>
+        </div>
+        <div class="box" style="background-color: #B4D0AD;">
+            <h2>Want to Learn More?</h2>
+            <div class="sub-box-container">
+                <a href="about.html" class="sub-box">
+                    <i class="fas fa-info-circle icon"></i>
+                    <p>About Us</p>
+                </a>
+                <a href="contact.html" class="sub-box">
+                    <i class="fas fa-envelope icon"></i>
+                    <p>Contact Us</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="f-wrapper">
+            <div id="img-text">
+                <img id="footer-img" src="../images/uq-logo.jpeg" alt="logo" />
+                <div class="nav-text">
+                    <p class="nav-white">University of Queensland</p>
+                </div>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="contact.html">Have a Question? Contact Us</a>
+            </div>
+            <div class="nav-text">
+                <a class="nav-white" href="https://student.eait.uq.edu.au/projects/?act=project_detail&id=15269">See
+                    Thesis Project</a>
+            </div>
+        </div>
+    </footer>
+    <script src="htdocs/js/script.js"></script>
+
+
+</body>
+
+</html>
